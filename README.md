@@ -3,6 +3,10 @@
 <P><HR ALIGN=LEFT></P>
 
 <H2>What's New</H2>
+This is a fork of <A HREF="https://github.com/unwireddevices/gerbmerge">the unwireddevices
+gerbmerge</A> fork, with changes made to allow for compatibility with Eagle CAD version 9+ CAM
+scripts.
+
 <p>In release 1.9.4</p>
 <ul>
 <li>Metric support fixed and tested with Diptrace</li>
