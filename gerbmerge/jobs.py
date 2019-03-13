@@ -1315,7 +1315,7 @@ def rotateJob(job, degrees = 90, firstpass = True):
       code = job.apxlat[layername][ap]
       A = GAT[code]
 
-      if A.apname in ('Circle', 'Octagon'):
+      if A.apname in ('Circle', 'Octagon', 'Octagon2'):
         # This aperture is fine. Copy it over.
         J.apxlat[layername][ap] = code
         continue
