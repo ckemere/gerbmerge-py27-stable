@@ -127,7 +127,7 @@ class Job:
     # are stored in hundred-thousandsths of an inch so 9999999 is 99.99999
     # inches.
     self.maxx = self.maxy = -9999999  # in the case all coordinates are < 0, this will prevent maxx and maxy from defaulting to 0
-    self.minx = self.miny = 9999999
+    self.minx = self.miny = self.orig_minx = self.orig_miny = 9999999
 
     # Aperture translation table relative to GAT. This dictionary
     # has as each key a layer name for the job. Each key's value
@@ -585,6 +585,9 @@ class Job:
               self.miny = min(self.miny,0)
               self.maxy = max(self.maxy,0)
 
+              self.orig_minx = self.minx
+              self.orig_miny = self.miny
+
           x = int(round(x*x_div))
           y = int(round(y*y_div))
           if I is not None:
@@ -604,6 +607,9 @@ class Job:
             if y < self.miny: self.miny = y
             if y > self.maxy: self.maxy = y
 
+            self.orig_minx = self.minx
+            self.orig_miny = self.miny
+
           # Move on to next match, if any
           sub_line = sub_line[match.end():]
           continue
@@ -621,6 +627,7 @@ class Job:
     # end of for each line in file
 
     fid.close()
+
     if 0:
       print layername
       print self.commands[layername]

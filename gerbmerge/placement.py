@@ -54,7 +54,9 @@ class Placement:
     """Write placement to a file"""
     fid = file(fname, 'wt')
     for job in self.jobs:
-      fid.write('%s %.3f %.3f %.3f %.3f\n' % (job.job.name, job.x, job.y, job.width_in(), job.height_in()))
+      fid.write('%s %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f\n' % (job.job.name, job.x, job.y,
+        job.width_in(), job.height_in(), job.job.minx, job.job.miny, job.job.orig_minx,
+        job.job.orig_miny))
       # added; thought it would be useful to know
       print "job locations: job - %s x,y(%f,%f)" % (job.job.name, job.x, job.y)
     fid.close()
