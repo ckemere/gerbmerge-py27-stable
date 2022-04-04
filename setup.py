@@ -3,7 +3,7 @@ import sys
 import glob
 import os
 
-from distutils.core import setup, Extension
+from setuptools import setup, Extension
 import distutils.sysconfig
 
 from gerbmerge.__version_info__ import __version__
